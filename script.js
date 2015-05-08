@@ -110,10 +110,13 @@ function visualHexColors(node) {
     if (node.classList && node.classList.contains('message') && !node.classList.contains('pending') && !node.querySelector('.ob-post')) {
         [].forEach.call(node.childNodes, function(child) {
             if (child.parentNode.tagName === 'PRE') return;
-            if (/\B#(?:[0-9a-f]{3}){1,2}\b/ig.test(child.textContent)) {
+            var re = /\B#(?:[0-9a-f]{3}){1,2}\b/ig;
+            if (re.test(child.textContent)) {
                 // ummm.. 
-                child.innerHTML = child.innerHTML.replace(/\B#(?:[0-9a-f]{3}){1,2}\b/ig, function(match) {
-                    return '<span style="width:12px;height:12px;border:1px solid #222;background-color:' + match + ';display:inline-block;"></span>' + match;
+                child.innerHTML = child.innerHTML.replace(re, function(match) {
+                    var temp = '<span style="border-bottom:solid 3px COL;">COL</span>';
+
+                    return temp.replace(/COL/g, match);
                 });
             }
         });
