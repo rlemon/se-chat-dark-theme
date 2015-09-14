@@ -2,6 +2,9 @@
 
 ## rlemon fork
 
+### New Home
+[Please visit the new home](https://github.com/rlemon/se-chat-dark-theme-plus)  
+
 restyled Olivers original and added a bunch of JS "features".   
   
 ![](http://i.imgur.com/xxMPtoI.png)
